@@ -1,0 +1,120 @@
+import React, { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { addToCart } from '../../actions/cartActions.js';
+import './FoodComponent.css';
+
+export default function Foods({ food }) {
+  const [quantity, setQuantity] = useState(1);
+  const [show, setShow] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const addtocart = () => {
+    dispatch(addToCart(food, quantity));
+  };
+
+  const userInfo = JSON.parse(window.localStorage.getItem('userInfo'));
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios
+      .delete('http://localhost:3001/deletefood/' + id)
+      .then((result) => {
+        console.log(result);
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    handleClose();
+  };
+
+  return (
+    <div className='shadow-lg p-3 mb-5 bg-body rounded'>
+      <div onClick={handleShow}>
+        <h1>{food.name}</h1>
+        <img
+          src={`http://localhost:3001/images/${food.image}`}
+          className='img-fluid'
+          style={{ height: '200px', maxWidth: '100%', width: 'auto' }}
+          alt='food Image'
+        />
+      </div>
+
+      <div className='flex-container'>
+        { userInfo && !userInfo.isAdmin && (
+           <div className='w-100 m-1'>
+           <p>Quantity:</p>
+           <select
+             className='form-control'
+             value={quantity}
+             onChange={(e) => {
+               setQuantity(e.target.value);
+             }}
+           >
+             {[...Array.from(Array(10).keys()).map((i) => (
+               <option key={i + 1} value={i + 1}>
+                 {i + 1}
+               </option>
+             ))]}
+           </select>
+         </div>
+        )
+        }
+       
+      </div>
+
+      <div className='flex-container'>
+        <div className='m-1 w-100'>
+          <h6 className='mt-1'>
+            Price: {food.price ? food.price * quantity + ' RS/-' : 'Not available'}
+          </h6>
+        </div>
+
+        <div className='m-1 w-100'>
+          { userInfo ? (
+          userInfo && userInfo.isAdmin ? (
+            <button className='btn btn-danger' onClick={() => handleDelete(food._id)}>
+              Delete
+            </button>
+          ) : (
+            <button
+              className={`btn ${food.stock ? 'btn-primary' : 'btn-secondary'}`}
+              onClick={() => (food.stock ? addtocart() : null)}
+              disabled={!food.stock}
+            >
+              {food.stock ? 'Add to Cart' : 'Out of Stock'}
+            </button>
+          )
+          ) : ( <button className='btn btn-standard' disabled > Login to Order </button>)
+          }
+        </div>
+      </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>{food.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img
+            src={`http://localhost:3001/images/${food.image}`}
+            className='img-fluid'
+            style={{ height: '300px' }}
+            alt='food image'
+          />
+          <p>{food.description}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <button className='btn' onClick={handleClose}>
+            Close
+          </button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  );
+}

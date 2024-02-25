@@ -1,0 +1,66 @@
+
+.navbar {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  background-color: #009e03;
+  border-bottom: 2px solid #00ff0d;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  height: 80px;
+  border-bottom: 4px solid #22372b;
+
+  z-index: 1000 !important; /* Adjust the value as needed */
+}
+/* Other styles */
+
+.navbar-brand img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.navbar-toggler-icon {
+  background-color: white;
+}
+
+.custom-navbar {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.name-link,
+.cart-link {
+  color: rgb(16, 15, 15);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 100000;
+}
+
+.name-link {
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+.cart-icon {
+  margin-left: 5px;
+}
+
+.logo-img {
+  width: 110px !important;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Additional styling for the navbar, adjust as needed */
+.navbar {
+  border-bottom: 3px solid green;
+  padding: 15px 0;
+}
+
+/* Change the background color of the active link */
+.navbar-nav .active > .nav-link {
+  background-color: #4CAF50;
+  color: white;
+}

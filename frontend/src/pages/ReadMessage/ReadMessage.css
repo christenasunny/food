@@ -1,0 +1,62 @@
+/* ReadMessage.css */
+
+.read-message-container {
+    margin-top: 80px; /* Adjusted margin for better spacing */
+}
+
+.list-group {
+    list-style: none;
+    padding: 0;
+}
+
+.list-group-item {
+    background-color: #ffffff; /* Changed background color to white */
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    border-bottom: 2px solid #007bff !important; /* Changed bottom border color to a blue shade */
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0; /* Remove margin for the last item */
+}
+
+.list-group-item:hover {
+    transform: scale(1.02); /* Enlarge on hover for a subtle effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Improved hover box-shadow */
+}
+
+.user-info {
+    text-align: center; /* Center-align user info */
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-name,
+.user-email {
+    font-size: 1.1em;
+    color: #007bff; /* Changed text color to a blue shade */
+    margin-bottom: 8px; /* Adjusted margin for better spacing */
+}
+
+.user-message {
+    font-size: 1.2em;
+    color: #343a40;
+    margin-top: 8px; /* Adjusted margin for better spacing */
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 768px) {
+    .user-info {
+        text-align: left !important; /* Align user info to the left on mobile screens */
+        flex-direction: column; /* Stack items in a column on smaller screens */
+        align-items: center; /* Center-align items in a column */
+    }
+
+    .user-name,
+    .user-email {
+        margin-bottom: 0; /* Remove bottom margin for name and email on mobile screens */
+    }
+}

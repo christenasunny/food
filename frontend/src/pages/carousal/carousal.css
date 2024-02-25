@@ -1,0 +1,10 @@
+@media (min-width: 768px) {
+  .carousel-inner {
+    height: 500px;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-Radius: "100px"!important;
+  }
+
+
+}

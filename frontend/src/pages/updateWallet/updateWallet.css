@@ -1,0 +1,49 @@
+.update {
+    max-width: 600px;
+    margin: 120px auto 0;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 2px solid #000000; /* Add border to the form */
+    background-color: #f8f8f8;
+    margin-bottom: 50px !important;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

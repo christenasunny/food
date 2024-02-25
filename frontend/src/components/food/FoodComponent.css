@@ -1,0 +1,101 @@
+/* Food Component Styling */
+
+/* Main Container */
+.shadow-lg {
+  background-color: #fff; /* White background */
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Subtle box shadow */
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.shadow-lg:hover {
+  transform: scale(1.05);
+}
+
+/* Title */
+h1 {
+  color: #343a40; /* Dark text color */
+  font-size: 1.8em;
+  text-align: center;
+}
+
+/* Image */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded corners for the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+/* Quantity Dropdown */
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd; /* Border color */
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* Price */
+h4 {
+  color: #28a745; /* Price text color */
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* Button Styling */
+.btn {
+  background-color: #007bff; /* Default button color */
+  color: white; /* Text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Delete Button for Admin Users */
+.btn-danger {
+  background-color: #dc3545; /* Red color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Modal Styling */
+.modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button Styling */
+.modal-footer button {
+  background-color: #6c757d; /* Close button color */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.modal-footer button:hover {
+  background-color: #495057; /* Darker grey on hover */
+}
+

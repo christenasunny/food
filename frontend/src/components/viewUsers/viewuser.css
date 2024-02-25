@@ -1,0 +1,27 @@
+/* Add your custom styles in ViewUsers.css */
+.view-users-container {
+    margin-top: 100px;
+    
+}
+
+.view-users-title {
+    text-align: center;
+    color: #f22a2a;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+.action-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.action-btn:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+}

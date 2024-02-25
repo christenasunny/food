@@ -1,0 +1,55 @@
+/* Footer.css */
+
+.canteen-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-logo {
+    text-align: left;
+  }
+  
+  .footer-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .footer-info {
+    text-align: center;
+  }
+  
+  .footer-info p {
+    margin: 5px 0;
+  }
+  
+  .footer-social a {
+    color: #fff;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+  
+  .footer-social a:hover {
+    color: #ffd700; /* Change the color on hover */
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+  }
+  
+  .footer-bottom p {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+  

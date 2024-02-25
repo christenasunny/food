@@ -1,0 +1,8 @@
+/* Add this style to your existing styles or create a new CSS file */
+.disabled-btn {
+    background-color: #857a7a !important; /* Set the desired background color for disabled buttons */
+    cursor: not-allowed; /* Change cursor for disabled buttons */
+    opacity: 0.7; /* Adjust opacity for disabled buttons */
+    /* Add any other styling as needed */
+  }
+  
