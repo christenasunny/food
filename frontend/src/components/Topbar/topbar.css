@@ -130,12 +130,7 @@
   position: relative;
 }
 
-.moving-image {
-  width: 100px; /* Adjust the width of your image */
-  height: auto; /* Maintain aspect ratio */
-  position: absolute;
-  animation: moveImage 9s linear infinite; /* Adjust the duration and type of animation */
-}
+
 
 @keyframes moveImage {
   from {

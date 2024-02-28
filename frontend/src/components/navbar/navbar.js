@@ -9,15 +9,13 @@ export default function Navbar() {
   const cartState = useSelector(state => state.cartReducer);
   const [cookies, setCookies] = useCookies(['access_token']);
 
-    const userInfo = JSON.parse(window.localStorage.getItem("userInfo")) || {};
-
+  const userInfo = JSON.parse(window.localStorage.getItem("userInfo")) || {};
 
   const handleLogout = () => {
     setCookies("access_token", "");
     window.localStorage.removeItem("userInfo");
     window.location.href = '/';
   }
-  
 
   return (
     <div>
@@ -25,9 +23,17 @@ export default function Navbar() {
         <div className="container">
           <b></b>
           <a className="navbar-brand" href="/">
-           Home
+            Home
           </a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
@@ -36,17 +42,32 @@ export default function Navbar() {
                 {userInfo.name ? (
                   userInfo.isAdmin ? (
                     <div className="dropdown">
-                      <a className="dropdown-toggle name-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a
+                        className="dropdown-toggle name-link"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
                         {userInfo.name}
                       </a>
                       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a className="dropdown-item" href="/Admin">Task</a>
+                        <a className="dropdown-item" href="/Adminorders"><b>Orders</b></a>
                         <a className="dropdown-item" href="#" onClick={handleLogout}><b>Logout</b></a>
                       </div>
                     </div>
                   ) : (
                     <div className="dropdown">
-                      <a className="dropdown-toggle name-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a
+                        className="dropdown-toggle name-link"
+                        type="button"
+                        id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
                         {userInfo.name}
                       </a>
                       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -79,8 +100,8 @@ export default function Navbar() {
               )}
               {!userInfo.isAdmin && (
                 <li className="nav-item">
-                    <b>Wallet: {userInfo.wallet} Rs</b>
-                    <span className="cart-icon"></span>
+                  <b>Wallet: {userInfo.wallet} Rs</b>
+                  <span className="cart-icon"></span>
                 </li>
               )}
             </ul>

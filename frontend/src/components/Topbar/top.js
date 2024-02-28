@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import food from '../../images/food_background.jpg';
 import pizza from '../../components/images/pizza.webp'
-import chef from '../../components/images/chef.jpg'
 import './topbar.css';
 
 export default function Top() {
@@ -29,10 +28,7 @@ export default function Top() {
         <a className="carousel-control-next" href="#carouselExampleControls1" role="button" data-slide="next"></a>
       </div>
 
-      {/* moving image */}
-      <div className="moving-image-container">
-        <img className="moving-image" src={chef} alt="Moving Image" />
-      </div>
+     
     </div>
   );
 }

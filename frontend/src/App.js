@@ -13,7 +13,7 @@ import Stock from './pages/out _of _stock/stock.js';
 import Contact from './components/contact/contact.js';
 import ReadMessage from './pages/ReadMessage/ReadMessage.js';
 import Order from './pages/orderPage/order.js';
-
+import {Adminorders} from './pages/AdminordersPage/Adminorders.js';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 
 function App() {
@@ -36,9 +36,7 @@ function App() {
         <Route path='/Contact/:id' element={<Contact/>}></Route>  
         <Route path='/Readmessage' element={<ReadMessage/>}></Route>  
         <Route path='/Order' element={<Order/>}></Route>  
-
-
-        
+        <Route path='/Adminorders' element={<Adminorders/>}></Route>    
       </Routes>
       <Footer />
      </Router>

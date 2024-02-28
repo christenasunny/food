@@ -1,28 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './order.css';
 
 export default function Order() {
   const [orderlist, setOrderlist] = useState([]);
+  const userInfo = JSON.parse(window.localStorage.getItem("userInfo")) || {};
 
-  useEffect=(() => {
-    // Retrieve data from localStorage and update the state
-    const storedDataString = window.localStorage.getItem("cartItems");
-    const parsedData = JSON.parse(storedDataString) || [];
-    setOrderlist(parsedData);
-  },[])
+  useEffect(() => {
+    axios.get("http://localhost:3001/cart/getcart/cartitems")
+      .then((result) => {
+        setOrderlist(result.data);
+      })
+      .catch(err => console.log(err));
+  }, []);
 
   return (
     <div className="order-container">
       <h2 className="order-heading">Order Details</h2>
       <div className="order-list">
         {orderlist.map((orderItem, index) => (
-          <div key={index} className="order-item">
-            <div className="order-item-name"><b>{orderItem.name}</b></div>
-            <div className="order-item-quantity">Quantity: {orderItem.quantity}</div>
-            <div className="image-container">
-              <img src={`http://localhost:3001/images/${orderItem.image}`} alt="Image" />
+          userInfo._id === orderItem.ownerID ? (
+            <div className="order-item" key={index}>
+              {orderItem.products.map((product, productIndex) => (
+                <div className="order-item-content" key={productIndex}>
+                  <div className="order-item-name"><b>{product.name}</b></div>
+                  <div className="order-item-quantity">Quantity: {product.quantity}</div>
+                  <div className="image-container">
+                    <img src={`http://localhost:3001/images/${product.image}`} alt="Image" />
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
+          ) : null
         ))}
       </div>
     </div>

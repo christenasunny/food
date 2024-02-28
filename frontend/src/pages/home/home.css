@@ -1,8 +1,8 @@
 /* Home.css */
 .home-container {
-    background-color: #f1f7f5b1;
+    background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 100px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
   
@@ -16,8 +16,8 @@
   }
   
   .col-md-4 {
-    background-color: #f8fafb00; /* Replace with your desired background color */
-    border: 1px solid #dfdede; /* Optional: Add a border for separation */
+    background-color: #ffffff00; /* Replace with your desired background color */
+   
     border-radius: 8px; /* Optional: Add border-radius for rounded corners */
     padding: 15px; /* Optional: Add padding for better spacing */
     border-radius: 50px;

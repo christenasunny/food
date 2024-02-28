@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import { Food_Router } from './routes/food_routes.js'
 import { UserRouter } from './routes/User_Router.js'
+import { CartRouter } from './routes/Cart_rotes.js'
 
 
 dotenv.config()
@@ -20,14 +21,8 @@ app.use('/GetUpdateUser',UserRouter)
 app.use('/UpdateUser',UserRouter)
 app.use('/stock',Food_Router)
 app.use('/Contact/user',UserRouter)
-
-
-
-
-
-
-
-
+app.use('/cart/getcart',CartRouter)
+app.use('/user',CartRouter)
 
 
 
