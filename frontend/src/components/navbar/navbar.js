@@ -52,8 +52,8 @@ export default function Navbar() {
                         {userInfo.name}
                       </a>
                       <div className="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                        <a className="dropdown-item"  href="/Admin">Task</a>
-                        <a className="dropdown-item"  href="/Adminorders"><b>Orders</b></a>
+                        <a className="dropdown-item" href="/Admin">Task</a>
+                        <a className="dropdown-item" href="/Adminorders"><b>Orders</b></a>
                         <a className="dropdown-item" href="#" onClick={handleLogout}><b>Logout</b></a>
                       </div>
                     </div>
@@ -70,35 +70,35 @@ export default function Navbar() {
                         {userInfo.name}
                       </a>
                       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a className="dropdown-item"  href="/Order"><b>Orders</b></a>
-                        <a className="dropdown-item"  href="#" onClick={handleLogout}><b>Logout</b></a>
+                        <a className="dropdown-item" href="/Order"><b>Orders</b></a>
+                        <a className="dropdown-item" href="#" onClick={handleLogout}><b>Logout</b></a>
                       </div>
                     </div>
                   )
                 ) : (
                   <li className="nav-item">
-                    <a className="nav-link"  href="/Login"><b>Login</b></a>
+                    <a className="nav-link" href="/Login"><b>Login</b></a>
                   </li>
                 )}
               </li>
-              {!userInfo.isAdmin && (
+              {!userInfo.isAdmin && userInfo._id && (
                 <li className="nav-item">
-                  <a className="nav-link cart-link"   href={`/Cart/${userInfo._id}`}>
+                  <a className="nav-link cart-link" href={`/Cart/${userInfo._id}`}>
                     <b>Cart {cartState.cartItems.length}</b>
                     <span className="cart-icon"></span>
                   </a>
                 </li>
               )}
-              {!userInfo.isAdmin && (
+              {!userInfo.isAdmin && userInfo._id && (
                 <li className="nav-item">
-                  <a className="nav-link cart-link"  href={`/Contact/${userInfo._id}`}>
+                  <a className="nav-link cart-link" href={`/Contact/${userInfo._id}`}>
                     <b>Contact</b>
                     <span className="cart-icon"></span>
                   </a>
                 </li>
               )}
-              {!userInfo.isAdmin && (
-                <li className="nav-item" style={{color:'black'}}>
+              {!userInfo.isAdmin && userInfo._id && (
+                <li className="nav-item" style={{ color: 'black' }}>
                   <b>Wallet: {userInfo.wallet} Rs</b>
                   <span className="cart-icon"></span>
                 </li>

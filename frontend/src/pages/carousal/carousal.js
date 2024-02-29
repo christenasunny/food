@@ -37,9 +37,9 @@ export default function Carousal() {
             </div>
           </div>
         </div>
-        <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style={{ width: "5%", opacity: "0.5" }}>
+        <a className="carousel-control-prev"  href="#carouselExampleIndicators" role="button" data-slide="prev" style={{ width: "5%", opacity: "0.5" }}>
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span className="sr-only">Previous</span>
+          <span className="sr-only" >Previous</span>
         </a>
         <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next" style={{ width: "5%", opacity: "0.5" }}>
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
