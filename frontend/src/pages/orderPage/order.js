@@ -7,7 +7,7 @@ export default function Order() {
   const userInfo = JSON.parse(window.localStorage.getItem("userInfo")) || {};
 
   useEffect(() => {
-    axios.get("http://localhost:3001/cart/getcart/cartitems")
+    axios.get("https://online-food-website.onrender.com/cart/getcart/cartitems")
       .then((result) => {
         setOrderlist(result.data);
       })
@@ -26,7 +26,7 @@ export default function Order() {
                   <div className="order-item-name"><b>{product.name}</b></div>
                   <div className="order-item-quantity">Quantity: {product.quantity}</div>
                   <div className="image-container">
-                    <img src={`http://localhost:3001/images/${product.image}`} alt="Image" />
+                    <img src={`https://online-food-website.onrender.com/images/${product.image}`} alt="Image" />
                   </div>
                 </div>
               ))}

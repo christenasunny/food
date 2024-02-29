@@ -27,7 +27,7 @@ export default function AddFoods() {
     formdata.append('price', price);
 
     try {
-      const result = await axios.post('http://localhost:3001/AddFoodRouter', formdata);
+      const result = await axios.post('https://online-food-website.onrender.com/AddFoodRouter', formdata);
       alert(result.data.message);
       navigate('/')
     } catch (err) {

@@ -12,7 +12,7 @@ export default function Home() {
   const [foods, setFoods] = useState(data);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/getALLFoods')
+    axios.get('https://online-food-website.onrender.com/getALLFoods')
       .then((res) => {
         setData(res.data);
         setFoods(res.data);

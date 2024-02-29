@@ -22,7 +22,7 @@ export default function Login() {
   function handlelogin(e) {
     e.preventDefault()
 
-    axios.post("http://localhost:3001/Login", { email, password })
+    axios.post("https://online-food-website.onrender.com/Login", { email, password })
       .then((result) => {
         const userLogin = result.data;
         if (userLogin.message !== "Login Failed") {

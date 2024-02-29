@@ -17,7 +17,7 @@ export default function Contact() {
 
     function handlecontact(e){
         e.preventDefault()
-          axios.put(`http://localhost:3001/Contact/user/Message/`+ userInfo._id,{message})
+          axios.put(`https://online-food-website.onrender.com/Contact/user/Message/`+ userInfo._id,{message})
           .then((result)=>{ 
             alert(result.data.message)
             navigate('/')

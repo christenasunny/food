@@ -29,7 +29,7 @@ export default function Register() {
         }
         else{
             console.log(name)
-          axios.post("http://localhost:3001/Register",{name,email,password})
+          axios.post("https://online-food-website.onrender.com/Register",{name,email,password})
           .then((result)=>{ 
             console.log(result.data.message)
             alert(result.data.message)

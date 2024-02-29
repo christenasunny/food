@@ -5,7 +5,7 @@ export default function Stock() {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/getALLFoods')
+    axios.get('https://online-food-website.onrender.com/getALLFoods')
       .then((res) => {
         const updatedFoods = res.data.map((food) => ({
           ...food,
@@ -28,7 +28,7 @@ export default function Stock() {
 
     setFoods(updatedFoods);
 
-    axios.put("http://localhost:3001/stock/UpdateStock/" + id, { stock: true })
+    axios.put("https://online-food-website.onrender.com/stock/UpdateStock/" + id, { stock: true })
       .then((result) => alert("Successfully Added to Stock"))
       .catch(err => alert("Error"));
   };
@@ -40,7 +40,7 @@ export default function Stock() {
 
     setFoods(updatedFoods);
 
-    axios.put("http://localhost:3001/stock/UpdateStock/" + id, { stock: false })
+    axios.put("https://online-food-website.onrender.com/stock/UpdateStock/" + id, { stock: false })
       .then((result) => alert("Successfully Removed from Stock"))
       .catch(err => alert(err));
   };
@@ -57,7 +57,7 @@ export default function Stock() {
         <tbody>
           {foods.map((food) => (
             <tr key={food._id}>
-              <td><b>{food.name}</b> {<img src={`http://localhost:3001/images/${food.image}`} alt="" style={{ height: '80px', width: '80px', borderRadius: "50%", boxShadow: "2px 2px 5px #888" }}/>}</td>
+              <td><b>{food.name}</b> {<img src={`https://online-food-website.onrender.com/images/${food.image}`} alt="" style={{ height: '80px', width: '80px', borderRadius: "50%", boxShadow: "2px 2px 5px #888" }}/>}</td>
               <td>
                 <button
                   className={`btn btn-success mb-1 ${food.disabled.addToStock ? 'disabled' : ''}`}

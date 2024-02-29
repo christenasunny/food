@@ -23,7 +23,7 @@ export default function Foods({ food }) {
   const handleDelete = (id) => {
     console.log(id);
     axios
-      .delete('http://localhost:3001/deletefood/' + id)
+      .delete('https://online-food-website.onrender.com/deletefood/' + id)
       .then((result) => {
         console.log(result);
         window.location.reload();
@@ -39,7 +39,7 @@ export default function Foods({ food }) {
       <div onClick={handleShow}>
         <h1>{food.name}</h1>
         <img
-          src={`http://localhost:3001/images/${food.image}`}
+          src={`https://online-food-website.onrender.com/images/${food.image}`}
           className='img-fluid'
           style={{ height: '200px', maxWidth: '100%', width: 'auto' }}
           alt='food Image'
@@ -102,7 +102,7 @@ export default function Foods({ food }) {
         </Modal.Header>
         <Modal.Body>
           <img
-            src={`http://localhost:3001/images/${food.image}`}
+            src={`https://online-food-website.onrender.com/images/${food.image}`}
             className='img-fluid'
             style={{ height: '300px' }}
             alt='food image'

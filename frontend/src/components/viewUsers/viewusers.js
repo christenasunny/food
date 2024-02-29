@@ -7,7 +7,7 @@ export default function ViewUsers() {
     const [list, setList] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/GetUser')
+        axios.get('https://online-food-website.onrender.com/GetUser')
             .then((result) => {
                 console.log(result.data);
                 const filteredList = result.data.filter(user => !user.isAdmin);

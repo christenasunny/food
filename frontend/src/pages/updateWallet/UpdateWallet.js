@@ -11,7 +11,7 @@ export default function Update() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/GetUpdateUser/users/${id}`)
+        axios.get(`https://online-food-website.onrender.com/GetUpdateUser/users/${id}`)
             .then((response) => {
                 setWallet(response.data.wallet);
                 setInitialWallet(response.data.wallet); 
@@ -41,7 +41,7 @@ export default function Update() {
         else{ updatedWallet = parseInt(initialWallet) - walletValue;}   
         }
     
-        axios.put(`http://localhost:3001/UpdateUser/${id}`, { wallet: updatedWallet })
+        axios.put(`https://online-food-website.onrender.com/UpdateUser/${id}`, { wallet: updatedWallet })
             .then((response) => {
                 alert(response.data.message);
                 navigate('/Viewusers');

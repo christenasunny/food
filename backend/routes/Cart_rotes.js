@@ -5,7 +5,7 @@ const router = express.Router()
 
 
 router.get("/cartitems", async (req, res) => {
-    console.log('hello');  // This should be executed
+
     try {
         const getCart = await CartModel.find({});
 
