@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './viewuser.css'; // Add your custom styles
+import './viewuser.css'; 
 
 export default function ViewUsers() {
     const [list, setList] = useState([]);

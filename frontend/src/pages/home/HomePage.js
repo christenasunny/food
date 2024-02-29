@@ -23,7 +23,8 @@ export default function Home() {
   }, []);
 
   const filter = (e) => {
-    setFoods(data.filter(f => f.name.toLowerCase().includes(e.target.value)))
+    const searchTerm = e.target.value.toLowerCase();
+    setFoods(data.filter(f => f.name.toLowerCase().includes(searchTerm)))
   }
 
   return (
@@ -32,7 +33,7 @@ export default function Home() {
       <div className="home-container">
         <h1 className="home-title"><i>Explore Delicious Foods</i> <img className="moving-image" src={chef} alt="Moving Image" style={{height:'150px',marginLeft:'30px',marginBottom:'40px'}}/></h1>
         <div className="search-container">
-          <input type="text" className='form-control' onChange={filter} placeholder='search' />
+          <input type="text" className='search-form-control' onChange={filter} placeholder='search' />
         </div>
         <div className="row justify-content-center">
           {foods.length === 0 ? (

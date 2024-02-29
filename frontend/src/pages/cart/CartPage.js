@@ -78,7 +78,8 @@ export default function Cart() {
         </div>
         <div className="col-md-4 text-right">
           <h3>Subtotal : {subtotal} RS</h3>
-          <button className='btn btn-standard' onClick={handleSubmit}> check out</button>
+          { cartItems.length>0 ?(<button className='btn btn-standard' onClick={handleSubmit}> check out</button>):(<button className='btn btn-standard' disabled onClick={handleSubmit}> check out</button>)}
+          
         </div>
       </div>
     </div>

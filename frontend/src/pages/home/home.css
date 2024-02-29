@@ -2,7 +2,7 @@
 .home-container {
     background-color: white;
     padding: 20px;
-    border-radius: 100px;
+   
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
   
@@ -31,6 +31,35 @@
     margin-bottom: 20px;
   }
 
-  .form-control {
-    width: 300px !important; /* Adjust the width of the search field */
+  .search-form-control {
+    width: 300px !important;
+    margin-left: -1150px !important;
+    border: 2px solid green; /* Adjust the width of the search field */
+  }
+
+
+  @media (max-width: 767px) {
+    .home-title {
+      color: #4caf50; /* Set a vibrant green text color */
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2.02rem; /* Increase font size */
+      font-family: 'Open Sans', sans-serif; /* Use a modern sans-serif font */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+    }
+    .search-form-control {
+      width: 300px !important;
+      margin-left: 0px !important; 
+      border: 2px solid green !important;
+    }
+  
+  }
+
+  @media (max-width: 1290px){
+    .search-form-control {
+      width: 300px !important;
+      margin-left: 0px !important; 
+      border: 2px solid green !important;
+    }
+  
   }

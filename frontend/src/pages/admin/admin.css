@@ -64,6 +64,6 @@
   .card-container {
     flex-direction: column; /* Display cards in a column on smaller screens */
     align-items: center; /* Center the cards in the column */
-    margin: 20px; /* Adjust margin for smaller screens */
+    margin: 100px; /* Adjust margin for smaller screens */
   }
 }

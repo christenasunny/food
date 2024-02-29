@@ -8,7 +8,7 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   height: 80px;
   border-bottom: 4px solid #22372b;
-
+/* color: rgb(2, 2, 99); */
   z-index: 1000 !important; /* Adjust the value as needed */
 }
 /* Other styles */
@@ -63,4 +63,30 @@
 .navbar-nav .active > .nav-link {
   background-color: #4CAF50;
   color: white;
+}
+
+
+
+
+@media (max-width: 767px) {
+  .nav-link {
+    color: red !important;
+    font-size: 1.2rem !important;
+  }
+  .nav-link cart-link{
+    color: red !important;
+    font-size: 1.2rem !important;
+  }
+ .nav-item{
+  color: red !important;
+  font-size: 1.2rem !important;
+ }
+ .dropdown-item{
+  color: red !important;
+  font-size: 1.2rem !important;
+ }
+ .dropdown{
+  color: red !important;
+  font-size: 1.2rem !important;
+ }
 }

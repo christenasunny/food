@@ -117,7 +117,7 @@
 }
 
 /* Mobile Styles */
-@media (max-width: 767px) {
+@media (max-width: 1450px) {
   .rotating-spinning-container {
     display: none !important;
   }
@@ -141,8 +141,10 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1290px) {
   .moving-image-container {
     display: none;
   }
 }
+
+
