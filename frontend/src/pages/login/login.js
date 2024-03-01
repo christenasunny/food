@@ -15,13 +15,14 @@ export default function Login() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const [_, setCookies] = useCookies(["access_token"])
   const navigate = useNavigate()
 
   function handlelogin(e) {
     e.preventDefault()
-
+    setLoading(true)
     axios.post("https://online-food-website.onrender.com/Login", { email, password })
       .then((result) => {
         const userLogin = result.data;
@@ -30,6 +31,7 @@ export default function Login() {
           setCookies("access_token", userLogin.token)
           window.localStorage.setItem("userInfo", JSON.stringify(userLogin.user))
           navigate('/');
+          setLoading(false)
         } else {
           alert("Invalid Credentials");
         }
@@ -47,7 +49,11 @@ export default function Login() {
           <input required type="text" placeholder='name' className='form-control' value={name} onChange={(e) => setName(e.target.value)} />
           <input required type="email" placeholder='email' className='form-control' value={email} onChange={(e) => setEmail(e.target.value)} />
           <input required type="password" placeholder='password' className='form-control' value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button type='submit' className='btn login-btn'>Login</button>
+          <button className='btn btn-standard' disabled={loading} onClick={handlelogin}>
+            {loading && <i className='fa fa-refresh fa-spin'></i>}
+            {loading && <span>loading..</span>}
+            {!loading && <span>Login</span>}
+          </button>
           <p>Don't have an Account? <Link to='/Register'>Register</Link></p>
         </form>
       </div>

@@ -8,6 +8,7 @@ import './FoodComponent.css';
 export default function Foods({ food }) {
   const [quantity, setQuantity] = useState(1);
   const [show, setShow] = useState(false);
+  
 
   const dispatch = useDispatch();
 

@@ -40,9 +40,9 @@ export default function Navbar() {
               <li className="nav-item">
                 {userInfo.name ? (
                   userInfo.isAdmin ? (
-                    <div className="dropdown">
+                    <div className="dropdown" >
                       <a
-                        className="dropdown-toggle name-link"
+                        className="dropdown-toggle name-link " 
                         type="button"
                         id="dropdownMenuButton"
                         data-toggle="dropdown"

@@ -1,6 +1,7 @@
 import { useState} from 'react'
 import axios from 'axios'
 import { useNavigate} from 'react-router-dom'
+
 import './contact.css'
 
 export default function Contact() {
@@ -9,7 +10,8 @@ export default function Contact() {
 
  
     const [message, setMessage] = useState('')
-  
+    const [loading, setLoading] = useState(false)
+
     
     
     const navigate= useNavigate()
@@ -17,10 +19,12 @@ export default function Contact() {
 
     function handlecontact(e){
         e.preventDefault()
+        setLoading(true)
           axios.put(`https://online-food-website.onrender.com/Contact/user/Message/`+ userInfo._id,{message})
           .then((result)=>{ 
             alert(result.data.message)
             navigate('/')
+            setLoading(false)
         })
           .catch(err=>{alert("Login to send Message")})
         
@@ -36,7 +40,11 @@ export default function Contact() {
                         <br /><textarea required  placeholder="Your Message" onChange={(e) => setMessage(e.target.value)}/>
                         
                         {!userInfo.name ? (<button className='btn contact-btn' disabled >Login to Submit</button>):
-                        (<button className='btn contact-btn'>Submit</button>)}
+                        (<button className='btn btn-standard' disabled={loading} onClick={handlecontact}>
+                        {loading && <i className='fa fa-refresh fa-spin'></i>}
+                        {loading && <span>loading..</span>}
+                        {!loading && <span>Submit</span>}
+                      </button>)}
                         
                        
                         </form>

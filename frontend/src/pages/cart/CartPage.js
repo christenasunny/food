@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../actions/cartActions';
 import { deleteFromCart } from '../../actions/cartActions';
@@ -21,7 +21,7 @@ export default function Cart() {
     window.localStorage.setItem("userInfo", JSON.stringify({ ...userInfo, wallet: newWallet }));
   };
 
-
+const [loading,setLoading] = useState(false)
   const handleSubmit = async () => {
     try {
       const newWallet = wallet - subtotal
@@ -29,12 +29,14 @@ export default function Cart() {
       const name = userInfo.name
       if (newWallet >= 0) {
         updateLocalStorage(newWallet)
+        setLoading(true)
         await axios.put(`https://online-food-website.onrender.com/UpdateUser/${userInfo._id}`, { wallet: newWallet})
         await axios.post("https://online-food-website.onrender.com/user/cart", { ownerID, name, cartItems })
           .then((result) => {
             alert(result.data.message)
             navigate('/Order')
             window.location.reload()
+            setLoading(false)
           })
           .catch((err) => {
             alert('error')
@@ -78,7 +80,12 @@ export default function Cart() {
         </div>
         <div className="col-md-4 text-right">
           <h3>Subtotal : {subtotal} RS</h3>
-          { cartItems.length>0 ?(<button className='btn btn-standard' onClick={handleSubmit}> check out</button>):(<button className='btn btn-standard' disabled onClick={handleSubmit}> check out</button>)}
+          { cartItems.length>0 ?(<button className='btn btn-standard' disabled={loading} onClick={handleSubmit}>
+            {loading && <i className='fa fa-refresh fa-spin'></i>}
+            {loading && <span>loading..</span>}
+            {!loading && <span>Checkout.</span>}
+
+          </button>):(<button className='btn btn-standard' disabled onClick={handleSubmit}> check out</button>)}
           
         </div>
       </div>
