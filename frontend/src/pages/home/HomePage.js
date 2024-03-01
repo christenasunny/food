@@ -4,14 +4,13 @@ import axios from 'axios';
 import './home.css'; 
 import Top from '../../components/Topbar/top.js';
 import Carousal from '../carousal/carousal.js';
-import Contact from '../../components/contact/contact.js';
 import chef from '../../components/images/chef.jpg';
-import ClipLoader from "react-spinners/ClipLoader";
+import Footer from '../footer/Footer.js';
 
 export default function Home() {
   const [data, setData] = useState([]);
   const [foods, setFoods] = useState(data);
-    const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
 
   useEffect(() => {
@@ -36,14 +35,9 @@ export default function Home() {
     <div style={{marginTop:"80px"}}>
       <Top />
       {
-      loading ?   <ClipLoader
-      // color={color}
-      loading={loading}
-      // cssOverride={override}
-      size={50}
-      aria-label="Loading Spinner"
-      data-testid="loader"
-    /> :
+      loading ?   <div class="spinner-border text-success"  role="status">
+      <span class="sr-only">Loading...</span>
+    </div> :
     <div>
     <div className="home-container">
       <h1 className="home-title">
@@ -80,6 +74,7 @@ export default function Home() {
     </div>
   </div>
       }
+      <Footer />
     </div>
   
   );

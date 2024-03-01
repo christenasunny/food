@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { addToCart } from '../../actions/cartActions.js';
 import './FoodComponent.css';
-
+import Swal from 'sweetalert2'
 export default function Foods({ food }) {
   const [quantity, setQuantity] = useState(1);
   const [show, setShow] = useState(false);
@@ -17,6 +17,11 @@ export default function Foods({ food }) {
 
   const addtocart = () => {
     dispatch(addToCart(food, quantity));
+    Swal.fire({
+      text: "Successfully added to cart!",
+      icon: "success",
+      timer: 1500
+    });
   };
 
   const userInfo = JSON.parse(window.localStorage.getItem('userInfo'));

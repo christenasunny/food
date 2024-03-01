@@ -1,3 +1,4 @@
+import { Timestamp } from 'mongodb'
 import mongoose from 'mongoose'
 
 const CartSchema = new mongoose.Schema({
@@ -21,8 +22,13 @@ const CartSchema = new mongoose.Schema({
         },
         quantity:{
             type:Number
-        }
-    }]
-})
+        },
+    }],
+
+},
+{
+    timestamps: true,
+}
+)
 
 export const CartModel = new mongoose.model("cart",CartSchema)

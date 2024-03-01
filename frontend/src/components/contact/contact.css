@@ -1,4 +1,4 @@
-.register-container {
+.contact-container {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@
 }
 
 /* Wrapper */
-.register-form {
+.contact-form {
     border-radius: 20px;
     width: 45vw;
     margin-top: 5rem;
@@ -25,7 +25,7 @@
 
   }
 
-  .register-title {
+  .contact-title {
     text-align: center;
     font-size: 36px;
     color: #f22a2a;
@@ -45,7 +45,7 @@
     padding-left: 0.75rem;
   }
   
-  .register-btn {
+  .contact-btn {
     margin-top: 2.5rem;
     outline: none;
     border: 1px solid transparent;
@@ -58,13 +58,13 @@
     cursor: pointer;
   }
 
-  .register-btn:hover {
+  .contact-btn:hover {
     border-color: #f22a2a;
     color: #f22a2a;
     background-color: #fff;
   }
   
-  .register-form > p {
+  .contact-form > p {
     text-align: center;
     color: black;
     display: flex;
@@ -72,7 +72,7 @@
     justify-content: center;
   }
 
-  .register-form > p > a {
+  .contact-form > p > a {
     text-decoration: none;
     font-size: 17px;
     color: #888;
@@ -80,11 +80,11 @@
   }
  /* Media Queries for Mobile Screens */
  @media (max-width: 767px) {
-    .register-container {
+    .contact-container {
       padding: 10px; /* Add padding to the login container for smaller screens */
     }
   
-    .register-form {
+    .contact-form {
       width: 80vw; /* Adjust the width for smaller screens */
     }
   }

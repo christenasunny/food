@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ClipLoader from "react-spinners/ClipLoader";
 
 import './order.css';
 
@@ -21,15 +20,11 @@ export default function Order() {
   }, []);
 
   return (
-    <div style={{marginTop:"80px"}}>
+    <div style={{marginTop:"90px"}}>
         {
-          loading ?   <ClipLoader
-          // color={'red'}
-          loading={loading}
-          size={50}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
+          loading ?   <div class="spinner-border text-success"  role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
         :
         <div className="order-container">
         <h2 className="order-heading">Order Details</h2>

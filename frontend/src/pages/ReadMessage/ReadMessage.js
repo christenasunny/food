@@ -6,36 +6,40 @@ import './ReadMessage.css'; // Ensure correct path to your CSS file
 
 export default function ReadMessage() {
     const [list, setList] = useState([]);
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setLoading(true)
         axios.get('https://online-food-website.onrender.com/GetUser')
             .then((result) => {
                 console.log(result.data);
                 const filteredList = result.data.filter(user => !user.isAdmin);
                 setList(filteredList);
+                setLoading(false)
             })
             .catch((err) => console.log("error"));
     }, []);
 
     return (
-        <div className="read-message-container">
-            <ul className="list-group">
-                {list.map((user) => (
-                    <li key={user.id} className="list-group-item">
-                        <div className="user-info">
-                            <div className="row">
-                                <div className="col">
-                                    <p className="user-name">{user.name}</p>
-                                    <p className="user-email">email: {user.email}</p>
-                                </div>
-                                <div className="col">
-                                    <p className="user-message">{user.message}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                ))}
-            </ul>
+        <div className="table-container read-message-container">
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Email</th>
+                        <th scope="col">Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {list.map((user) => (
+                        user.message ? (
+                            <tr key={user.id}>
+                                <td className="email-column">{user.email}</td>
+                                <td className="message-column">{user.message}</td>
+                            </tr>
+                        ) : null
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 }

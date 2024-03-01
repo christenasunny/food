@@ -44,11 +44,14 @@ router.post('/',upload.single('file'),async(req,res)=> {
     console.log(price)
     try{
         const newfood = await new FoodModel({name,price,category,image:file.filename,description})
-        await newfood.save()
-        res.json({message:"successfully added"})
+        const savedefood = await newfood.save()
+        if(savedefood){
+           return res.json({message:"successfully added"}) 
+        }
+        return res.json({message:"Fill all fields"})
     }
     catch(err){
-        return res.json(err)
+        return res.json({message:"Fill all fields"})
 }})
 
 

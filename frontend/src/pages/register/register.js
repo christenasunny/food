@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, Link } from 'react-router-dom'
 import './register.css'
+import Swal from 'sweetalert2';
 
 export default function Register() {
 
@@ -31,12 +32,24 @@ export default function Register() {
       console.log(name)
       axios.post("https://online-food-website.onrender.com/Register", { name, email, password })
         .then((result) => {
-          console.log(result.data.message)
-          alert(result.data.message)
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully Registered",
+            showConfirmButton: false,
+            timer: 2000
+          });
           navigate('/Login')
           setLoading(false)
         })
-        .catch(err => { console.log("couldn't register") })
+        .catch(err => { Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Couldn't Registered",
+          showConfirmButton: false,
+          timer: 3000
+        });
+        setLoading(false) })
     }
   }
 
@@ -48,8 +61,8 @@ export default function Register() {
           <input required type="text" placeholder='name' className='form-control' value={name} onChange={(e) => setName(e.target.value)} />
           <input required type="email" placeholder='email' className='form-control' value={email} onChange={(e) => setEmail(e.target.value)} />
           <input required type="password" placeholder='password' className='form-control' value={password} onChange={(e) => setPassword(e.target.value)} />
-          <input required type="password" placeholder='confirm password' className='form-control' value={cpassword} onChange={(e) => setCpassword(e.target.value)} />
-          <button className='btn btn-standard' disabled={loading} onClick={handleregister}>
+          <input required type="password" placeholder='confirm password' className='form-control' value={cpassword} onChange={(e) => setCpassword(e.target.value)} /><br/>
+          <button className='btn btn-standard' disabled={loading} >
             {loading && <i className='fa fa-refresh fa-spin'></i>}
             {loading && <span>loading..</span>}
             {!loading && <span>Register</span>}

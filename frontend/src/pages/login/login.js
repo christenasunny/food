@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 import './login.css'
+import Swal from 'sweetalert2'
 
 export default function Login() {
   useEffect(() => {
@@ -33,11 +34,18 @@ export default function Login() {
           navigate('/');
           setLoading(false)
         } else {
-          alert("Invalid Credentials");
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Invalid Credentials",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setLoading(false)
         }
       })
       .catch((err) => {
-        alert("Couldn't login");
+       alert("Server Error")
       });
   }
 
@@ -49,7 +57,7 @@ export default function Login() {
           <input required type="text" placeholder='name' className='form-control' value={name} onChange={(e) => setName(e.target.value)} />
           <input required type="email" placeholder='email' className='form-control' value={email} onChange={(e) => setEmail(e.target.value)} />
           <input required type="password" placeholder='password' className='form-control' value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button className='btn btn-standard' disabled={loading} onClick={handlelogin}>
+          <button className='btn btn-standard' disabled={loading} >
             {loading && <i className='fa fa-refresh fa-spin'></i>}
             {loading && <span>loading..</span>}
             {!loading && <span>Login</span>}

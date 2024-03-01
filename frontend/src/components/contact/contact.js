@@ -37,7 +37,7 @@ export default function Contact() {
                         <form onSubmit={handlecontact} >
                         <input required type="text" placeholder='name' className='form-control' value={userInfo.name}/>
                         <input required type="email" placeholder='email' className='form-control' value={userInfo.email} />
-                        <br /><textarea required  placeholder="Your Message" onChange={(e) => setMessage(e.target.value)}/>
+                        <br /><textarea required  placeholder="Your Message" onChange={(e) => setMessage(e.target.value)}/><br/>
                         
                         {!userInfo.name ? (<button className='btn contact-btn' disabled >Login to Submit</button>):
                         (<button className='btn btn-standard' disabled={loading} onClick={handlecontact}>

@@ -14,6 +14,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/',UserRouter)
+app.use('/Login',UserRouter)
 app.use('/getALLFoods',Food_Router)
 app.use('/AddFoodRouter',Food_Router)
 app.use('/deletefood',Food_Router)
