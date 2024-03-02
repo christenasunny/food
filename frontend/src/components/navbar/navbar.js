@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./navbar.css";
 import { useSelector } from 'react-redux';
 import { useCookies } from 'react-cookie';
-
+import { useEffect } from 'react';
+import axios from 'axios';
 
 export default function Navbar() {
   const cartState = useSelector(state => state.cartReducer);
   const [cookies, setCookies] = useCookies(['access_token']);
+  const user = JSON.parse(window.localStorage.getItem("userInfo")) || {};
+  const[userInfo,setUserInfo] = useState('')
 
-  const userInfo = JSON.parse(window.localStorage.getItem("userInfo")) || {};
+useEffect(()=>{
+{user._id && (axios.get(`${process.env.REACT_APP_BACKEND_URL}GetUpdateUser/users/`+user._id)
+.then((response)=>{
+  setUserInfo(response.data)
+}).catch((err)=>{console.log('error',err)}))}
 
+},[])
   const handleLogout = () => {
     setCookies("access_token", "");
     window.localStorage.removeItem("userInfo");
     window.location.href = '/';
   }
+
 
   return (
     <div>

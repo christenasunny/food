@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+
 export default function Cart() {
   const cartState = useSelector(state => state.cartReducer);
   const cartItems = cartState.cartItems;
@@ -49,9 +50,9 @@ export default function Cart() {
 
             updateLocalStorage(newWallet);
             setLoading(true);
-
-            await axios.put(`https://online-food-website.onrender.com/UpdateUser/${userInfo._id}`, { wallet: newWallet });
-            await axios.post("https://online-food-website.onrender.com/user/cart", { ownerID, name, cartItems })
+         
+            await axios.put(`${process.env.REACT_APP_BACKEND_URL}UpdateUser`, { wallet: newWallet });
+            await axios.post(`${process.env.REACT_APP_BACKEND_URL}user/cart`, { ownerID, name, cartItems })
               .then((result) => {
                 navigate('/Order')
                 window.location.reload()
